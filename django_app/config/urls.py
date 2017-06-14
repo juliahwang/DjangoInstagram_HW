@@ -14,10 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
+
+from config import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # 공통 url 패턴 등록
     url(r'^post/', include('post.urls'))
 ]
+
+# static()은 리스트를 만든다. settings의 MEDIA_URL로 왔을 때
+# document_root는 settings의 MEDIA_ROOT에서 가져온다.
+urlpatterns += static(
+    prefix=settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT,
+)
