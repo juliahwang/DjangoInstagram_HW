@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 from django.shortcuts import render, get_object_or_404, redirect
 
 from member.models import User
+=======
+from django.shortcuts import render, get_object_or_404
+>>>>>>> bc65f5d74c6296526330edb01c2908efbf17983e
 from .models import Post
 
 # Create your views here.
